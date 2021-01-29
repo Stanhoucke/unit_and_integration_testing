@@ -38,4 +38,15 @@ describe('App.vue', () => {
     expect(wrapper.vm.runningTotal).to.equal(3)
   });
 
+  it('should concatenate multiple number clicks', () => {
+    const wrapper = shallowMount(App)
+    wrapper.vm.previousTotal = 0
+    wrapper.vm.numberClick('2');
+    wrapper.vm.numberClick('4');
+    wrapper.vm.numberClick('6');
+    wrapper.vm.numberClick('8');
+    expect(wrapper.vm.runningTotal).to.equal(2468)
+  });
+
+
 })
