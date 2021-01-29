@@ -31,4 +31,11 @@ describe('App.vue', () => {
     expect(wrapper.vm.runningTotal).to.equal(15)
   });
 
+  it('should divide 21 by 7 and get 3', () => {
+    const wrapper = shallowMount(App)
+    wrapper.vm.previousTotal = 21
+    wrapper.vm.divide('7');
+    expect(wrapper.vm.runningTotal).to.equal(3)
+  });
+
 })
