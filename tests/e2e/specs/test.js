@@ -67,6 +67,39 @@ describe('calculator', () => {
     cy.get('.display').should('contain', '21');
   });
 
+  // Range of numbers
+  it('should update the display with negative numbers', () => {
+    cy.get('#number2').click();
+    cy.get('#operator_subtract').click();
+    cy.get('#number5').click();
+    cy.get('#operator_equals').click();
+    cy.get('.display').should('contain', '-3');
+  });
+
+  it('should update the display with decimals', () => {
+    cy.get('#number6').click();
+    cy.get('#operator_divide').click();
+    cy.get('#number4').click();
+    cy.get('#operator_equals').click();
+    cy.get('.display').should('contain', '1.5');
+  });
+
+  it('should update the display with result of multiple operations', () => {
+    cy.get('#number9').click();
+    cy.get('#operator_multiply').click();
+    cy.get('#number5').click();
+    cy.get('#number0').click();
+    cy.get('#operator_multiply').click();
+    cy.get('#number1').click();
+    cy.get('#number0').click();
+    cy.get('#number0').click();
+    cy.get('#number0').click();
+    cy.get('#number0').click();
+    cy.get('#number0').click();
+    cy.get('#operator_equals').click();
+    cy.get('.display').should('contain', '45000000');
+  });
+
 
 
 
