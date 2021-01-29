@@ -100,8 +100,13 @@ describe('calculator', () => {
     cy.get('.display').should('contain', '45000000');
   });
 
-
-
-
+  // Divide by 0
+  it('should update the display with message when dividing by zero', () => {
+    cy.get('#number7').click();
+    cy.get('#operator_divide').click();
+    cy.get('#number0').click();
+    cy.get('#operator_equals').click();
+    cy.get('.display').should('contain', 'Not a Number');
+  });
 
 })

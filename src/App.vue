@@ -92,7 +92,12 @@ export default {
       this.runningTotal = parseFloat(this.previousTotal) * parseFloat(number);
     },
     divide(number) {
-      this.runningTotal = parseFloat(this.previousTotal) / parseFloat(number);
+      // Catch divide by 0 case
+      if (number === 0) {
+        this.runningTotal = "Not a Number"
+      } else {
+        this.runningTotal = parseFloat(this.previousTotal) / parseFloat(number);
+      }
     },
   },
 };
