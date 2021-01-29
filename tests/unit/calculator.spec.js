@@ -24,5 +24,11 @@ describe('App.vue', () => {
     expect(wrapper.vm.runningTotal).to.equal(3)
   });
 
+  it('should multiply 3 by 5 and get 15', () => {
+    const wrapper = shallowMount(App)
+    wrapper.vm.previousTotal = 3
+    wrapper.vm.multiply('5');
+    expect(wrapper.vm.runningTotal).to.equal(15)
+  });
 
 })
